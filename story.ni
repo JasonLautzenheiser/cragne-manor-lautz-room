@@ -10,23 +10,28 @@ DAN is a region.
 
 DAN1 is a room in DAN. DAN1 is west of SPO7.
 
-DAN2 is a room in DAN. DAN2 is north of DAN1.
+DAN4 is a room in DAN.  DAN4 is north of DAN1.
+
+DAN8 is a room in DAN.  DAN8 is northeast of DAN1. 
+
+DAN2 is a room in DAN. DAN2 is northwest of DAN1.
 
 Part 1 - DAN1 Outside Pub
 
-Printed name of DAN1 is "Outside the Pub (Jason Lautzenheiser)".
+Printed name of DAN1 is "East Side of Town (Jason Lautzenheiser)".
 
-Description of DAN1 is "As the [lautz-dirt-road] runs east to west, it narrows here outside the [lautz-pub] where the jagged rooftops on either side reach far out across the street.  Off to the west you can see a [lautz-bridge].   The narrow [lautz-brick-sidewalk] lays unevenly along the ugly, half-crumbling brick walls.  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]."
+Description of DAN1 is "As the [lautz-dirt-road] runs through the east side of town, it narrows as the jagged rooftops on either side of the road reach out to each other.   To the northwest is the [lautz-pub] and to the north is the [lautz-jail].  You can continue northeast out of town and and to the west you see a [lautz-bridge].  [say-hidden-path-to-courtyard].  As you pause on the narrow [lautz-brick-sidewalk] which lays unevenly along the ugly, half-crumbling [lautz-brick-walls].  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]. "
 
 Commentary of DAN1 is "This room is my small contribution to Cragne Manor.   This is my first piece of I7 in a few years as most of my time has been spent on enhancing Trizbort (shameless plug)."
 
 Before looking in DAN1 for the first time, say "You pause on the sidewalk as you approach the entrance to the pub as you hear a faint whistle in the distance."
 
+Instead of going inside from DAN1:
+	try going north.
+	
+To say say-hidden-path-to-courtyard:
+	say "You can also go south to the courtyard"
 
-
-Section 1 - Street Lamp
-
-The lautz-street-lamp is in DAN1.  The lautz-street-lamp is scenery.  Printed name of the lautz-street-lamp is "street lamp".  Understand "lamp" and "street lamp" as lautz-street-lamp when the location is DAN1.   
 
 [The paper box holds the information we need about my Cragne.  The main puzzle revolves around getting into the paperbox.  It's locked and broken and rusted.  The newspaper inside will give us all the information we need about the Cragne]
 
@@ -41,6 +46,13 @@ The lautz-street-lamp is in DAN1.  The lautz-street-lamp is scenery.  Printed na
 	c: this actually pulls the whole paperbox over and it lands on the loose brick on the sidewalk, breaking the glass.
 ]
 	
+Section 1 - Brick Walls
+
+The lautz-brick-walls is in DAN1.  The lautz-brick-walls are scenery.  The lautz-brick-walls are plural-named.  Printed name of the lautz-brick-walls is "brick walls".  Understand "brick walls" and "walls" and "wall" as lautz-brick-walls when location is DAN1. The description of lautz-brick-walls is "The brick walls have seen better days.  You see many areas where the mortar has crumbled away and it looks like you could remove the bricks without much trouble."
+
+After examining the lautz-brick-walls for the first time:
+	now lautz-bricks are in DAN1.
+
 Section 2 - Paper box
 
 The lautz-paperbox is in DAN1.   The lautz-paperbox is fixed in place closed openable locked transparent container.  Printed name of the lautz-paperbox is "newspaper box".  Understand "box" and "paper box" and "newspaper box" and "paperbox" and "door" as lautz-paperbox when location is DAN1.  The description of lautz-paperbox is "[lautz-describe-paperbox]".
@@ -52,7 +64,7 @@ To say lautz-describe-paperbox:
 	if lautz-paperbox is tipped:
 		say "The paperbox is now laying on it's side.  The glass has broken out of the door and the [lautz-newspapers] are spilling out on the ground.";
 	else if lautz-paperbox is broken:
-		say "The glass of the paperbox is now broken out.";
+		say "The glass of the paperbox is now broken out";
 	else:
 		say "The metal paperbox has a door, with a foggy glass window through which you can stil see some of the newspapers inside.   Beside the [lautz-handle] is a [lautz-slot] and a faded sign that reads '25 cents'.  One of the legs of the rusted paperbox has broken away and has left the [lautz-paperbox] leaning at an angle.  [lautz-say-broken-leg]."
 
@@ -122,18 +134,25 @@ The lautz-pub is in DAN1.  The lautz-pub is scenery.  Printed name of the lautz-
 The lautz-entrance is in DAN1.  The lautz-entrance is scenery.  Printed name of the lautz-entrance is "entrance".  Understand "entrance" and "door" as lautz-entrance when location is DAN1.  The description of lautz-entrance is "You peer into the entrance but it is too dark to see much of anything."
 
 Before entering  lautz-entrance when the location is DAN1:  
-	try going north instead.
+	try going northwest instead.
 	
 Before entering  lautz-pub when the location is DAN1:  
+	try going northwest instead.
+
+Section 4 - Jail
+
+The lautz-jail is in DAN1.  The lautz-jail is scenery.  Printed name of the lautz-jail is "Backwater jail".   Understand "jail", "backwater jail", "prison" as lautz-jail when location is DAN1.  The description of lautz-jail is "The [lautz-jail] sits conveniently close to the pub, awaiting any patron who may get a bit too rowdy.  The building is fairly non-descript and the dark entrance sits to the north of where you are standing now."
+
+Before entering lautz-jail when the location is DAN1:
 	try going north instead.
 
 Section 7 - Pub Sign
 
-The lautz-pub-sign is in DAN1.  The lautz-pub-sign is scenery.  Printed name of the lautz-pub-sign is "sign".  Understand "sign" and "pub sign" as lautz-pub-sign when location is DAN1.
+The lautz-pub-sign is in DAN1.  The lautz-pub-sign is scenery.  Printed name of the lautz-pub-sign is "sign".  Understand "sign" and "pub sign" as lautz-pub-sign when location is DAN1.  The description of lautz-pub-sign is "The painted wood sign is faded almost to the point of not being able to read the sign.  But you think the last two words are 'Last Home'."
 
 Section 7 - Pub window
 
-The lautz-small-window is in DAN1.  The lautz-small-window is scenery.  Printed name of the lautz-small-window is "murky window".  Understand "window" and "dingy" and "murky" and "murky window" and "dirty window" as lautz-small-window when location is DAN1.
+The lautz-small-window is in DAN1.  The lautz-small-window is scenery.  Printed name of the lautz-small-window is "murky window".  Understand "window" and "dingy" and "murky" and "murky window" and "dirty window" as lautz-small-window when location is DAN1.   The description of the lautz-small-window is "You move closer to the window and attempt to peer through.  It's dark inside and the window is very dirty, but you see human-like shapes moving around inside."
 
 Section 4 - Steps
 
@@ -141,16 +160,31 @@ The lautz-steps is in DAN1.   The lautz-steps is scenery.   Printed name of the 
 
 Section 5 - Dirt Road
 
-The lautz-dirt-road is in DAN1.  The lautz-dirt-road is scenery.  Printed name of the lautz-dirt-road is "street".  Understand "dirt" and "road" and "street" and "dirt road" and "dirt street" as lautz-dirt-road when location is DAN1.
+The lautz-dirt-road is in DAN1.  The lautz-dirt-road is scenery.  Printed name of the lautz-dirt-road is "street".  Understand "dirt" and "road" and "street" and "dirt road" and "dirt street" as lautz-dirt-road when location is DAN1.  The description of lautz-dirt-road is "The dirt road outside the pub runs east to west.  It narrows here outside the pub."
 
 Section 6 - Brick Sidewalk
 
-The lautz-brick-sidewalk is in DAN1.  The lautz-brick-sidewalk is scenery.  Printed name of the lautz-brick-sidewalk is "brick sidewalk".  Understand "brick" and "sidewalk" and "side walk" and "brick sidewalk" and "brick side walk" as lautz-brick-sidewalk when location is DAN1.
+The lautz-brick-sidewalk is in DAN1.  The lautz-brick-sidewalk is scenery.  Printed name of the lautz-brick-sidewalk is "brick sidewalk".  Understand "brick" and "sidewalk" and "side walk" and "brick sidewalk" and "brick side walk" as lautz-brick-sidewalk when location is DAN1.  The description of the lautz-brick-sidewalk is "The uneven sidewalk looks like it hasn't been repaired in quite some time.  You see many loose bricks and you risk tripping over them if you're not careful."
 
+After examining lautz-brick-sidewalk for the first time:
+	now lautz-bricks are in DAN1.
+
+Section 6 - Bricks
+
+Printed name of lautz-bricks is "loose bricks".  Lautz-bricks is plural-named.  Understand "brick" and  "bricks" as lautz-bricks when location is DAN1.
+
+Instead of throwing the  lautz-bricks at lautz-paperbox:
+	say "You throw the brick as hard as you can at the paperbox and you hit the glass of the window just right that it shatters.";
+	now the lautz-paperbox is broken;
+	now the lautz-paperbox is open;
+	now the lautz-paperbox is not openable;
+	now the lautz-paperbox is not locked;
+	now the lautz-newspapers is freed;
+	try examining the lautz-paperbox.
 
 Section 7 - Bridge
 
-The lautz-bridge is in DAN1.  The lautz-bridge is scenery.  Printed name of the lautz-bridge is "bridge".  Understand "bridge" as lautz-bridge when location is DAN1.
+The lautz-bridge is in DAN1.  The lautz-bridge is scenery.  Printed name of the lautz-bridge is "bridge".  Understand "bridge" as lautz-bridge when location is DAN1.  The description of lautz-bridge is "From here you can't make out much about the bridge."
 
 
 
