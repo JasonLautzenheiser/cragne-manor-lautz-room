@@ -8,7 +8,7 @@ Include Cragne Suite by Ryan Veeder.
 
 DAN is a region.
 
-DAN1 is a room in DAN. DAN1 is west of SPO7.
+DAN1 is a room in DAN. DAN1 is east of SPO7.
 
 DAN4 is a room in DAN.  DAN4 is north of DAN1.
 
@@ -20,7 +20,7 @@ Part 1 - DAN1 Outside Pub
 
 Printed name of DAN1 is "East Side of Town (Jason Lautzenheiser)".
 
-Description of DAN1 is "As the [lautz-dirt-road] runs through the east side of town, it narrows as the jagged rooftops on either side of the road reach out to each other.   To the northwest is the [lautz-pub] and to the north is the [lautz-jail].  You can continue northeast out of town and and to the west you see a [lautz-bridge].  [say-hidden-path-to-courtyard].  As you pause on the narrow [lautz-brick-sidewalk] which lays unevenly along the ugly, half-crumbling [lautz-brick-walls].  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]. "
+Description of DAN1 is "As the [lautz-dirt-road] runs through the east side of town, it narrows as the jagged rooftops on either side of the road reach out to each other.   To the northwest is the [lautz-pub] and to the north is the [lautz-jail].  You can continue northeast out of town and and to the west you see a [lautz-bridge].  [say-hidden-path-to-courtyard].  As you pause on the narrow [lautz-brick-sidewalk] which lays unevenly along the ugly, half-crumbling [lautz-brick-walls], you hear a train whistle in the distance.  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]. "
 
 Commentary of DAN1 is "This room is my small contribution to Cragne Manor.   This is my first piece of I7 in a few years as most of my time has been spent on enhancing Trizbort (shameless plug)."
 
@@ -37,13 +37,9 @@ To say say-hidden-path-to-courtyard:
 
 [HOW TO:  The slot can not be used to pay for a paper.  The only way is to force the box open.   
 
-1.  We can pry up a loose brick from the sidewalk and throw it through the glass.  
-	a:  use the broken leg from the paperbox to pry up the brick.
+1.  We can take a loose brick from the sidewalk or wall and throw it through the glass.  
 	
 2.  We can use the leg itself to pry open the box by sticking it in the handle and pulling on it.
-	a:  put leg in handle
-	b: pull handle / leg after it's inserted.
-	c: this actually pulls the whole paperbox over and it lands on the loose brick on the sidewalk, breaking the glass.
 ]
 	
 Section 1 - Brick Walls
@@ -52,21 +48,27 @@ The lautz-brick-walls is in DAN1.  The lautz-brick-walls are scenery.  The lautz
 
 After examining the lautz-brick-walls for the first time:
 	now lautz-bricks are in DAN1.
+	
+Instead of touching the lautz-brick-walls:
+	say "As you touch the wall bits of brick and mortar crumble beneath your touch.  A few bricks feel quite wobbly."
 
 Section 2 - Paper box
 
-The lautz-paperbox is in DAN1.   The lautz-paperbox is fixed in place closed openable locked transparent container.  Printed name of the lautz-paperbox is "newspaper box".  Understand "box" and "paper box" and "newspaper box" and "paperbox" and "door" as lautz-paperbox when location is DAN1.  The description of lautz-paperbox is "[lautz-describe-paperbox]".
+The lautz-paperbox is in DAN1.   The lautz-paperbox is fixed in place closed openable locked transparent container.  Printed name of the lautz-paperbox is "newspaper box".  Understand "box" and "paper box" and "newspaper box" and "paperbox" and "door" as lautz-paperbox when location is DAN1.  The description of lautz-paperbox is "[lautz-describe-paperbox].".
 
 The lautz-paperbox can be broken.  The lautz-paperbox is not broken. 
 The lautz-paperbox can be tipped.  The lautz-paperbox is not tipped. 
 
+Instead of touching the lautz-paperbox:
+	say "You run your hands over the rough and rusty surface of the box."
+
 To say lautz-describe-paperbox:
 	if lautz-paperbox is tipped:
-		say "The paperbox is now laying on it's side.  The glass has broken out of the door and the [lautz-newspapers] are spilling out on the ground.";
+		say "The paperbox is now laying on it's side.  The glass has broken out of the door and the [lautz-newspapers] are spilling out on the ground";
 	else if lautz-paperbox is broken:
 		say "The glass of the paperbox is now broken out";
 	else:
-		say "The metal paperbox has a door, with a foggy glass window through which you can stil see some of the newspapers inside.   Beside the [lautz-handle] is a [lautz-slot] and a faded sign that reads '25 cents'.  One of the legs of the rusted paperbox has broken away and has left the [lautz-paperbox] leaning at an angle.  [lautz-say-broken-leg]."
+		say "The metal paperbox has a door, with a foggy glass window through which you can still see some of the newspapers inside.   Beside the [lautz-handle] is a [lautz-slot] and a faded sign that reads '25 cents.'  [if lautz-broken-leg is in lautz-handle]The broken leg is now wedged into the handle giving you some leverage to try and pull the paperbox open[else]One of the legs of the rusted paperbox has broken away and has left the [lautz-paperbox] leaning at an angle[lautz-say-broken-leg][end if]".
 
 Before taking or pushing or pulling the lautz-paperbox when location is DAN1:
 	if lautz-broken-leg is in lautz-handle:
@@ -76,7 +78,7 @@ Before taking or pushing or pulling the lautz-paperbox when location is DAN1:
 		now the lautz-paperbox is not openable;
 		now the lautz-paperbox is not locked;
 		now the lautz-newspapers is freed;
-		say "You pull on the bar stuck in the handle and pull the paperbox over.  As it hits the sidewalk, the glass window strikes a loose brick that was sticking up higher from the rest and the glass shatters." instead;
+		say "You pull on the bar stuck in the handle and you are able to gain enough leverage to tip the paperbox over.  As it falls, you back away and when it hits the sidewalk, the glass window strikes a loose brick that was sticking up higher from the rest and the glass shatters." instead;
 	otherwise:
 		say "You push on the paperbox and it wobbles, but it isn't quite enough enough to knock it over." instead.
 
@@ -90,24 +92,72 @@ To say lautz-say-broken-leg:
 	if lautz-broken-leg is carried by the player and  location is DAN1:
 		say "";
 	otherwise:
-		say "A rusty bar of metal, which appears to be the remains of the leg, lies on the sidewalk"
+		say ".  A rusty bar of metal, which appears to be the remains of the leg, lies on the sidewalk"
 		
 Instead of opening the lautz-paperbox:
-	say "The normal way of opening it would be to put a quarter in the [lautz-slot]."
+	say "The normal way of opening it would be to put a quarter in the [lautz-slot][lautz-say-clue-slot]".
 	
+To say lautz-say-clue-slot:
+	if we have not examined the lautz-slot:
+		say ". Maybe you can look at the slot.";
+	otherwise:
+		say ", but you've already seen it's out of commission."
+
 Rule for printing the name of the lautz-paperbox when the location is DAN1 (this is the dont show paperbox contents rule):
 	say "[printed name of lautz-paperbox]";
 	omit contents in listing.
 	
-The lautz-slot is part of the lautz-paperbox.  Printed name of lautz-slot is "slot".  Understand "slot" and "coin slot" and "coin-slot" and "coinslot" as lautz-slot when location is DAN1.   the description of lautz-slot is "The coin slot would normally be the size of a quarter, which in normal cases would be what you would do to open the [lautz-paperbox] to get your newpaper.  However, the slot is gummed up with grime and rust.  You're not getting a quarter in there."
+The lautz-slot is part of the lautz-paperbox.  Printed name of lautz-slot is "slot".  Understand "slot" and "coin slot" and "coin-slot" and "coinslot" as lautz-slot when location is DAN1.   the description of lautz-slot is "The coin slot is the size of a quarter, which in normal cases would be what you would do to open the [lautz-paperbox] to get your newspaper.  However, the slot is gummed up with grime and rust.  You're not getting a quarter in there."
+
+Section 3 - Handle of paperbox
 
 The lautz-handle is a part of the lautz-paperbox.  The lautz-handle is a container.  Printed name of lautz-handle is "handle".  Understand "handle" as lautz-handle when location is DAN1.  The description of lautz-handle is "While the handle is rusty, it still seems firmly attached to the [lautz-paperbox]."
 
-The lautz-broken-leg is in DAN1.    The printed name of lautz-broken-leg is "rusty piece of metal".    Understand "leg" and "broken leg" and  "metal" and "bar" and "metal bar" and "piece" and "piece of metal" and "rusty" and "rusty piece of metal" as lautz-broken-leg when location is DAN1.  The description of lautz-broken-leg is "The metal bar "
+Instead of pulling or pushing the lautz-handle when the location is DAN1:
+	if lautz-broken-leg is in lautz-handle:
+		if lautz-paperbox is not tipped:
+			try pulling lautz-paperbox;
+		otherwise:
+			say "With the [lautz-paperbox] laying on it's side, pulling the handle is not doing anything, however since the glass is now broken, you can get anything inside.";
+	otherwise:
+		say "The door is still locked and you manage to wobble the [lautz-paperbox] a little, but you just don't have enough leverage to pull it over."
 
+Instead of touching the lautz-handle:
+	try touching the lautz-paperbox.
+
+Section 4 - Broken leg of paperbox
+
+The lautz-broken-leg is in DAN1.    The printed name of lautz-broken-leg is "rusty piece of metal".    Understand "leg" and "broken leg" and  "metal" and "bar" and "metal bar" and "piece" and "piece of metal" and "rusty" and "rusty piece of metal" as lautz-broken-leg when location is DAN1.  The description of lautz-broken-leg is "The remains of the broken leg is light and sturdy and long enough to stretch from your hand to your elbow."
+
+Before doing anything except pulling with the lautz-broken-leg when the location is DAN1:
+	if lautz-broken-leg is in lautz-handle:
+		say "It's wedged in there pretty good now." instead;
+
+Instead of pulling the lautz-broken-leg when the location is DAN1:
+	if lautz-broken-leg is in lautz-handle:
+		if lautz-paperbox is not tipped:
+			try pulling lautz-paperbox instead;
+		otherwise:
+			try taking the lautz-broken-leg;
+	otherwise:
+		try taking the lautz-broken-leg.
+	
+Before inserting the lautz-broken-leg into the lautz-handle:
+	say "The leg appears to fit nicely in the handle and you slide it in until it is snug.  You now have more leverage with which to try and pry the door open on the [lautz-paperbox].";
+
+Before tying the lautz-broken-leg to the lautz-paperbox:
+	if lautz-broken-leg is in lautz-handle:
+		say "It's wedged in there pretty good now.";
+	otherwise:
+		say "You try reattaching the broken leg to the bottom of the [lautz-paperbox], but your attempt is futile.  With nowhere to put the bar, you slide it into the only handy place you can see, right into the handle, which conveniently fits nicely and may give you some leverage to pry open the door.";
+		now lautz-broken-leg is in lautz-handle instead.
+
+Instead of touching the lautz-broken-leg:
+	try touching the lautz-paperbox.
+	
 [reading or examining the stack of newspapers provide you the information needed for the cragne.]
 
-Section 2 - Stack of papers
+Section 5 - Stack of papers
 
 The lautz-newspapers is in the lautz-paperbox.  Lautz-newspapers is plural-named.  Printed name of the lautz-newspapers is "newspapers".  Understand "newspapers" and "newspaper" and "paper" and "papers" and "news paper" and "news papers" as lautz-newspapers when location is DAN1.   The lautz-newspapers can be freed.
 
@@ -115,21 +165,29 @@ The description of lautz-newspapers is "[lautz-describe-newspapers]".
 
 to say lautz-describe-newspapers:
 	if lautz-newspapers is freed:
-		say "The paper is dated, July 26, 1970.  The headline reads [bold type]'Fulvous Alderman of the Variegated Court Found Dead.'[roman type] [paragraph break]Below the headline is a photo of who you assume is Fulvous dressed in all black with black tie and black top hat.  He seems to be standing in front of an old church and strangely enough there is at his feet, almost appearing to be posing for the photo as well, a duck.[paragraph break]The article reads, [italic type]'Fulvous Alderman of the Variegated Court was found dead yesterday.  His body was found by an unnamed man who was exploring a remote area when he came across an abandonded white house.   When the young man entered through a back window to explore the home, he found the body of Fulvous in the attic.  He was slumped over a table with what appears to be a ceremonial dagger in his back.  Other than the knife and some dull orange duck feathers scattered around the room, no other clues were found regarding the culprit nor the motive. '[roman type]";
+		say "The paper is dated, July 26, 1970.  The headline reads [bold type]'Fulvous Alderman of the Variegated Court Found Dead.'[roman type] [paragraph break]Below the headline is a photo of who you assume is Fulvous dressed in all black with black tie and black top hat.  He seems to be standing in front of an old church and strangely enough there is at his feet, almost appearing to be posing for the photo as well, a duck.[paragraph break]The article reads, [italic type]'Fulvous Alderman of the Variegated Court was found dead yesterday.  His body was found by an unnamed man who was exploring a remote area when he came across an abandoned white house.   When the young man entered through a back window to explore the home, he found the body of Fulvous in the attic.  He was slumped over a table with what appears to be a ceremonial dagger in his back.  Other than the knife and some dull orange duck feathers scattered around the room, no other clues were found regarding the culprit nor the motive. '[roman type]";
 	otherwise:
 		say "Through the foggy window you can just make out part of the headline, 'Ful... Court ....Dead.'";
 
 before taking the lautz-newspapers when location is DAN1:
 	if lautz-paperbox is tipped or lautz-paperbox is broken:
+		now the player holds the lautz-newspapers;
 		say "You pick one of the old yellowed papers off of the stack." instead;
 	otherwise:
 		say "You need to get the paperbox open first." instead.
 
-	
+Instead of touching the lautz-newspapers:
+	if the player holds lautz-newspapers:
+		say "The papers are very fragile having sat in the [lautz-paperbox] for so long.";
+	otherwise:
+		if lautz-paperbox is broken:
+			say "You would have to take a newspaper first.";
+		otherwise:
+			say "You can't get to the newspaper to see what it feels like."
 
-Section 3 - Pub
+Section 6 - Pub
 
-The lautz-pub is in DAN1.  The lautz-pub is scenery.  Printed name of the lautz-pub is "pub".  Understand "pub" and "building" and "local pub" and "bar" as lautz-pub when location is DAN1.  The description of lautz-pub is "The outside of the building is made from rough stone put together long ago.  The mortar is slowly disintegrating and flaking onto the ground.   The [lautz-entrance], to the north, is at the bottom of some [lautz-steps].   There is a [lautz-small-window] to the side of the window."
+The lautz-pub is in DAN1.  The lautz-pub is scenery.  Printed name of the lautz-pub is "pub".  Understand "pub" and "building" and "local pub" as lautz-pub when location is DAN1.  The description of lautz-pub is "The outside of the building is made from rough stone put together long ago.  The mortar is slowly disintegrating and flaking onto the ground.   The [lautz-entrance], to the north, is at the bottom of some [lautz-steps].   There is a [lautz-small-window] to the side of the window."
 
 The lautz-entrance is in DAN1.  The lautz-entrance is scenery.  Printed name of the lautz-entrance is "entrance".  Understand "entrance" and "door" as lautz-entrance when location is DAN1.  The description of lautz-entrance is "You peer into the entrance but it is too dark to see much of anything."
 
@@ -139,87 +197,87 @@ Before entering  lautz-entrance when the location is DAN1:
 Before entering  lautz-pub when the location is DAN1:  
 	try going northwest instead.
 
-Section 4 - Jail
+Section 7 - Jail
 
 The lautz-jail is in DAN1.  The lautz-jail is scenery.  Printed name of the lautz-jail is "Backwater jail".   Understand "jail", "backwater jail", "prison" as lautz-jail when location is DAN1.  The description of lautz-jail is "The [lautz-jail] sits conveniently close to the pub, awaiting any patron who may get a bit too rowdy.  The building is fairly non-descript and the dark entrance sits to the north of where you are standing now."
 
 Before entering lautz-jail when the location is DAN1:
 	try going north instead.
 
-Section 7 - Pub Sign
+Section 8 - Pub Sign
 
 The lautz-pub-sign is in DAN1.  The lautz-pub-sign is scenery.  Printed name of the lautz-pub-sign is "sign".  Understand "sign" and "pub sign" as lautz-pub-sign when location is DAN1.  The description of lautz-pub-sign is "The painted wood sign is faded almost to the point of not being able to read the sign.  But you think the last two words are 'Last Home'."
 
-Section 7 - Pub window
+Instead of doing anything except examining or searching to the lautz-pub-sign when location is DAN1:
+	say "It's much to high and most likely too heavy."
+	
+Instead of searching the lautz-pub-sign:
+	try examining the lautz-pub-sign.
+
+Section 9 - Pub window
 
 The lautz-small-window is in DAN1.  The lautz-small-window is scenery.  Printed name of the lautz-small-window is "murky window".  Understand "window" and "dingy" and "murky" and "murky window" and "dirty window" as lautz-small-window when location is DAN1.   The description of the lautz-small-window is "You move closer to the window and attempt to peer through.  It's dark inside and the window is very dirty, but you see human-like shapes moving around inside."
 
-Section 4 - Steps
+Instead of attacking the lautz-small-window when location is DAN1:
+	say "I don't think the owners would appreciate you breaking their window."
+	
+Instead of searching the lautz-small-window when location is DAN1:
+	try examining the lautz-small-window.
+	
+Section 10 - Steps
 
 The lautz-steps is in DAN1.   The lautz-steps is scenery.   Printed name of the lautz-steps is "worn steps".  Understand "cracked" and "steps" and "worn" and "cracked steps" and "worn steps" as the lautz-steps when the location is DAN1.  Initial appearance of the lautz-steps is "The steps leading down to the entrance of the pub are cracked and worn from years of traffic."  Description of the lautz-steps is "The steps are worn and cracked and lead down to the pub entrance."
 
-Section 5 - Dirt Road
+Section 11 - Dirt Road
 
 The lautz-dirt-road is in DAN1.  The lautz-dirt-road is scenery.  Printed name of the lautz-dirt-road is "street".  Understand "dirt" and "road" and "street" and "dirt road" and "dirt street" as lautz-dirt-road when location is DAN1.  The description of lautz-dirt-road is "The dirt road outside the pub runs east to west.  It narrows here outside the pub."
 
-Section 6 - Brick Sidewalk
+Section 12 - Brick Sidewalk
 
 The lautz-brick-sidewalk is in DAN1.  The lautz-brick-sidewalk is scenery.  Printed name of the lautz-brick-sidewalk is "brick sidewalk".  Understand "brick" and "sidewalk" and "side walk" and "brick sidewalk" and "brick side walk" as lautz-brick-sidewalk when location is DAN1.  The description of the lautz-brick-sidewalk is "The uneven sidewalk looks like it hasn't been repaired in quite some time.  You see many loose bricks and you risk tripping over them if you're not careful."
 
 After examining lautz-brick-sidewalk for the first time:
 	now lautz-bricks are in DAN1.
 
-Section 6 - Bricks
+Section 13 - Bricks
 
 Printed name of lautz-bricks is "loose bricks".  Lautz-bricks is plural-named.  Understand "brick" and  "bricks" as lautz-bricks when location is DAN1.
 
 Instead of throwing the  lautz-bricks at lautz-paperbox:
-	say "You throw the brick as hard as you can at the paperbox and you hit the glass of the window just right that it shatters.";
-	now the lautz-paperbox is broken;
-	now the lautz-paperbox is open;
-	now the lautz-paperbox is not openable;
-	now the lautz-paperbox is not locked;
-	now the lautz-newspapers is freed;
-	try examining the lautz-paperbox.
+	if lautz-paperbox is not broken:
+		say "You throw the brick as hard as you can at the paperbox. It hits the window just right, shattering the glass.";
+		now the lautz-paperbox is broken;
+		now the lautz-paperbox is open;
+		now the lautz-paperbox is not openable;
+		now the lautz-paperbox is not locked;
+		now the lautz-newspapers is freed;
+		try examining the lautz-paperbox;
+	otherwise:
+		say "You've already done your damage."
 
-Section 7 - Bridge
+Section 14 - Bridge
 
 The lautz-bridge is in DAN1.  The lautz-bridge is scenery.  Printed name of the lautz-bridge is "bridge".  Understand "bridge" as lautz-bridge when location is DAN1.  The description of lautz-bridge is "From here you can't make out much about the bridge."
 
-
-
-
-Section 8 - Player
+Section 15 - Player
 
 Instead of examining the player when the location is DAN1 (this is the Lautz PC description rule):
-	say "This is the PC in the street."
+	say "The wind is blowing through your hair as you walk through this area of town making you look a bit unkempt. "
 	
 
-Section 9 - Other Stuff
+Section 16 - Other Stuff
 
-Instead of jumping when the location is DAN1: say "You jump periously close to the steps to the pub."
+Instead of jumping when the location is DAN1: say "You jump perilously close to the steps to the pub."
+Instead of eating when the location is DAN1: say "There is nothing to eat here and really you're not that hungry."
+Instead of smelling when the location is DAN1: 
+	say "[one of]You catch a whiff from the pub of stale beer and greasy food[or]The scent of decay lingers in the air[or]The smell of a distant locamotive drifts in on the breeze[or]You smell nothing of consequence[or]The aroma of flowers comes from the south[then at random]."
+Instead of listening when the location is DAN1:
+	say "[one of]The distant whistle of a locamotive rings through the air[or]Somewhere behind you a door slams loudly causing you to jump[or]The buzz of flies is coming above you on one of the roofs[or]The sound of silence is deafening[then at random]."
 
-[lautz-ever-about is a truth state that varies.
-To say lautz-aboutline:
-	if lautz-ever-about is false:
-		say "[bold type](First-time visitors should type ABOUT!)[roman type][paragraph break]"
+instead of taking anything that is scenery when location is DAN1:
+	say "I doubt that is likely to be succesfull."
 
-lautz-abouting is an action out of world.
-
-Understand "about", "help" as lautz-abouting when the location is DAN1.
-
-Carry out lautz-abouting:
-	now lautz-ever-about is true;
-	say ""]
-
-
-Section 10 - Every Turn
-
-
-Section 11 - Mistakes
-
-
-Section 12 - Rules
+Section 17 - Rules
 
 Rule for printing a parser error when the latest parser error is the I beg your pardon error and the location is DAN1:
   say "[one of]Bzzzzzzz.[or]Ahhh...if only I had a beer.[or]Daydreaming again?[or]Your blood pressure is rising.[or]What?[or]Come again?[or]Prithee, pardon?[in random order]"
