@@ -68,7 +68,7 @@ To say lautz-describe-paperbox:
 	else if lautz-paperbox is broken:
 		say "The glass of the paperbox is now broken out";
 	else:
-		say "The metal paperbox has a door, with a foggy glass window through which you can still see some of the newspapers inside.   Beside the [lautz-handle] is a [lautz-slot] and a faded sign that reads '25 cents.'  [if lautz-broken-leg is in lautz-handle]The broken leg is now wedged into the handle giving you some leverage to try and pull the paperbox open[else]One of the legs of the rusted paperbox has broken away and has left the [lautz-paperbox] leaning at an angle[lautz-say-broken-leg][end if]".
+		say "The metal paperbox has a door, with a foggy glass window through which you can still see some of the newspapers inside.  There is a large handle that would be used to open the box and beside the [lautz-handle] is a [lautz-slot] and a faded sign that reads '25 cents.'  [if lautz-broken-leg is in lautz-handle]The broken leg is now wedged into the handle giving you some leverage to try and pull the paperbox open[else]One of the legs of the rusted paperbox has broken away and has left the [lautz-paperbox] leaning at an angle[lautz-say-broken-leg][end if]".
 
 Before taking or pushing or pulling the lautz-paperbox when location is DAN1:
 	if lautz-broken-leg is in lautz-handle:
@@ -78,7 +78,7 @@ Before taking or pushing or pulling the lautz-paperbox when location is DAN1:
 		now the lautz-paperbox is not openable;
 		now the lautz-paperbox is not locked;
 		now the lautz-newspapers is freed;
-		say "You pull on the bar stuck in the handle and you are able to gain enough leverage to tip the paperbox over.  As it falls, you back away and when it hits the sidewalk, the glass window strikes a loose brick that was sticking up higher from the rest and the glass shatters." instead;
+		say "You pull on the bar stuck in the handle, and you are able to gain enough leverage to tip the paperbox over.  You back away in time to avoid the box, and when it hits the sidewalk, the glass window shatters on a loose brick that was sticking up higher from the rest." instead;
 	otherwise:
 		say "You push on the paperbox and it wobbles, but it isn't quite enough enough to knock it over." instead.
 
@@ -107,11 +107,11 @@ Rule for printing the name of the lautz-paperbox when the location is DAN1 (this
 	say "[printed name of lautz-paperbox]";
 	omit contents in listing.
 	
-The lautz-slot is part of the lautz-paperbox.  Printed name of lautz-slot is "slot".  Understand "slot" and "coin slot" and "coin-slot" and "coinslot" as lautz-slot when location is DAN1.   the description of lautz-slot is "The coin slot is the size of a quarter, which in normal cases would be what you would do to open the [lautz-paperbox] to get your newspaper.  However, the slot is gummed up with grime and rust.  You're not getting a quarter in there."
+The lautz-slot is part of the lautz-paperbox.  Printed name of lautz-slot is "slot".  Understand "slot" and "coin slot" and "coin-slot" and "coinslot" as lautz-slot when location is DAN1.   the description of lautz-slot is "The coin slot is the size of a quarter, so you'd expect to be able to put one in to get a newspaper.  But the slot's too full of grime and rust to fit a quarter."
 
 Section 3 - Handle of paperbox
 
-The lautz-handle is a part of the lautz-paperbox.  The lautz-handle is a container.  Printed name of lautz-handle is "handle".  Understand "handle" as lautz-handle when location is DAN1.  The description of lautz-handle is "While the handle is rusty, it still seems firmly attached to the [lautz-paperbox]."
+The lautz-handle is a part of the lautz-paperbox.  The lautz-handle is a container.  Printed name of lautz-handle is "handle".  Understand "handle" as lautz-handle when location is DAN1.  The description of lautz-handle is "A simple metal loop attached to the door.  It is rusty, but firmly attached to the door of the [lautz-paperbox]."
 
 Instead of pulling or pushing the lautz-handle when the location is DAN1:
 	if lautz-broken-leg is in lautz-handle:
@@ -143,7 +143,11 @@ Instead of pulling the lautz-broken-leg when the location is DAN1:
 		try taking the lautz-broken-leg.
 	
 Before inserting the lautz-broken-leg into the lautz-handle:
-	say "The leg appears to fit nicely in the handle and you slide it in until it is snug.  You now have more leverage with which to try and pry the door open on the [lautz-paperbox].";
+	say "The leg appears to fit nicely in the handle and you slide it in until it is snug.  You now have more leverage for prying the [lautz-paperbox] door open.";
+	now lautz-broken-leg is in lautz-handle instead.
+
+Before putting the lautz-broken-leg on the lautz-handle:
+	try inserting the lautz-broken-leg into the lautz-handle instead.
 
 Before tying the lautz-broken-leg to the lautz-paperbox:
 	if lautz-broken-leg is in lautz-handle:
@@ -165,7 +169,7 @@ The description of lautz-newspapers is "[lautz-describe-newspapers]".
 
 to say lautz-describe-newspapers:
 	if lautz-newspapers is freed:
-		say "The paper is dated, July 26, 1970.  The headline reads [bold type]'Fulvous Alderman of the Variegated Court Found Dead.'[roman type] [paragraph break]Below the headline is a photo of who you assume is Fulvous dressed in all black with black tie and black top hat.  He seems to be standing in front of an old church and strangely enough there is at his feet, almost appearing to be posing for the photo as well, a duck.[paragraph break]The article reads, [italic type]'Fulvous Alderman of the Variegated Court was found dead yesterday.  His body was found by an unnamed man who was exploring a remote area when he came across an abandoned white house.   When the young man entered through a back window to explore the home, he found the body of Fulvous in the attic.  He was slumped over a table with what appears to be a ceremonial dagger in his back.  Other than the knife and some dull orange duck feathers scattered around the room, no other clues were found regarding the culprit nor the motive. '[roman type]";
+		say "The paper is dated, July 26, 1970.  The headline reads [bold type]'Fulvous Alderman of the Variegated Court Found Dead.'[roman type] [paragraph break]Below the headline is a photo of someone you assume is Fulvous dressed in all black with black tie and black top hat.  He is standing in front of an old church and strangely enough,there's a duck at his feet, almost posing.[paragraph break]The article reads, [italic type]'Fulvous Alderman of the Variegated Court was found dead yesterday.  His body was found by an unnamed man who was exploring a remote area when he came across an abandoned white house.   When the young man entered through a back window to explore the home, he found the body of Fulvous in the attic.  He was slumped over a table with what appears to be a ceremonial dagger in his back.  Other than the knife and some dull orange duck feathers scattered around the room, no other clues were found regarding the culprit or the motive.'[roman type]";
 	otherwise:
 		say "Through the foggy window you can just make out part of the headline, 'Ful... Court ....Dead.'";
 
@@ -206,7 +210,7 @@ Before entering lautz-jail when the location is DAN1:
 
 Section 8 - Pub Sign
 
-The lautz-pub-sign is in DAN1.  The lautz-pub-sign is scenery.  Printed name of the lautz-pub-sign is "sign".  Understand "sign" and "pub sign" as lautz-pub-sign when location is DAN1.  The description of lautz-pub-sign is "The painted wood sign is faded almost to the point of not being able to read the sign.  But you think the last two words are 'Last Home'."
+The lautz-pub-sign is in DAN1.  The lautz-pub-sign is scenery.  Printed name of the lautz-pub-sign is "sign".  Understand "sign" and "pub sign" as lautz-pub-sign when location is DAN1.  The description of lautz-pub-sign is "The painted wood sign is faded near-unreadability.  But you think the last two words are 'Last Home'."
 
 Instead of doing anything except examining or searching to the lautz-pub-sign when location is DAN1:
 	say "It's much to high and most likely too heavy."
@@ -220,6 +224,9 @@ The lautz-small-window is in DAN1.  The lautz-small-window is scenery.  Printed 
 
 Instead of attacking the lautz-small-window when location is DAN1:
 	say "I don't think the owners would appreciate you breaking their window."
+
+instead of rubbing the lautz-small-window when location is DAN1:
+	say "You rub the murky window, but all the dirt seems to be on the inside and you can't clean it enough to see thru."
 	
 Instead of searching the lautz-small-window when location is DAN1:
 	try examining the lautz-small-window.
@@ -241,7 +248,7 @@ After examining lautz-brick-sidewalk for the first time:
 
 Section 13 - Bricks
 
-Printed name of lautz-bricks is "loose bricks".  Lautz-bricks is plural-named.  Understand "brick" and  "bricks" as lautz-bricks when location is DAN1.
+Printed name of lautz-bricks is "loose bricks".  Lautz-bricks are a  plural-named thing.  Understand "brick" and  "bricks" as lautz-bricks when location is DAN1.   The description of lautz-bricks is "The brick is quite heavy."
 
 Instead of throwing the  lautz-bricks at lautz-paperbox:
 	if lautz-paperbox is not broken:
@@ -266,6 +273,12 @@ Instead of examining the player when the location is DAN1 (this is the Lautz PC 
 	
 
 Section 16 - Other Stuff
+
+Instead of going east when location is DAN1:  say "You shouldn't wander off in that direction."
+Instead of going southwest when location is DAN1:  say "There is no room between the buildings in that direction."
+Instead of going southeast when location is DAN1:  say "There is no room between the buildings in that direction."
+Instead of going up when location is DAN1: say "Climbing the buildings is not the best thing to do right now."
+Instead of going down when location is DAN1: say "There is no where to go down from here."
 
 Instead of jumping when the location is DAN1: say "You jump perilously close to the steps to the pub."
 Instead of eating when the location is DAN1: say "There is nothing to eat here and really you're not that hungry."
