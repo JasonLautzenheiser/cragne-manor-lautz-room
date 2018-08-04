@@ -10,17 +10,13 @@ DAN is a region.
 
 DAN1 is a room in DAN. DAN1 is east of SPO7.
 
-DAN4 is a room in DAN.  DAN4 is north of DAN1.
-
-DAN8 is a room in DAN.  DAN8 is northeast of DAN1. 
-
-DAN2 is a room in DAN. DAN2 is northwest of DAN1.
+DAN2 is a room in DAN. DAN2 is north of DAN1.
 
 Part 1 - DAN1 Outside Pub
 
-Printed name of DAN1 is "East Side of Town (Jason Lautzenheiser)".
+Printed name of DAN1 is "Outside Pub (Jason Lautzenheiser)".
 
-Description of DAN1 is "As the [lautz-dirt-road] runs through the east side of town, it narrows as the jagged rooftops on either side of the road reach out to each other.   To the northwest is the [lautz-pub] and to the north is the [lautz-jail].  You can continue northeast out of town and and to the west you see a [lautz-bridge].  [say-hidden-path-to-courtyard].  As you pause on the narrow [lautz-brick-sidewalk] which lays unevenly along the ugly, half-crumbling [lautz-brick-walls], you hear a train whistle in the distance.  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]. "
+Description of DAN1 is "As the [lautz-dirt-road] runs through this side of town, it narrows as the jagged rooftops on either side of the road reach out to each other.   To the north is the [lautz-pub].  You can continue to the west where you see a [lautz-bridge].   As you pause on the narrow [lautz-brick-sidewalk] which lays unevenly along the ugly, half-crumbling [lautz-brick-walls], you hear a train whistle in the distance.  A [lautz-pub-sign] hangs loosely above the [lautz-pub] entrance and to the side is a [lautz-small-window]. "
 
 Commentary of DAN1 is "This room is my small contribution to Cragne Manor.   This is my first piece of I7 in a few years as most of my time has been spent on enhancing Trizbort (shameless plug)."
 
@@ -191,21 +187,14 @@ Instead of touching the lautz-newspapers:
 
 Section 6 - Pub
 
-The lautz-pub is in DAN1.  The lautz-pub is scenery.  Printed name of the lautz-pub is "pub".  Understand "pub" and "building" and "local pub" as lautz-pub when location is DAN1.  The description of lautz-pub is "The outside of the building is made from rough stone put together long ago.  The mortar is slowly disintegrating and flaking onto the ground.   The [lautz-entrance], to the north, is at the bottom of some [lautz-steps].   There is a [lautz-small-window] to the side of the window."
+The lautz-pub is in DAN1.  The lautz-pub is scenery.  Printed name of the lautz-pub is "pub".  Understand "pub" and "building" and "local pub" as lautz-pub when location is DAN1.  The description of lautz-pub is "The outside of the building is made from rough brick put together long ago.  The mortar is slowly disintegrating and flaking onto the ground.   The [lautz-entrance], to the north, is at the bottom of some [lautz-steps].   There is a [lautz-small-window] to the side of the window."
 
 The lautz-entrance is in DAN1.  The lautz-entrance is scenery.  Printed name of the lautz-entrance is "entrance".  Understand "entrance" and "door" as lautz-entrance when location is DAN1.  The description of lautz-entrance is "You peer into the entrance but it is too dark to see much of anything."
 
 Before entering  lautz-entrance when the location is DAN1:  
-	try going northwest instead.
+	try going north instead.
 	
 Before entering  lautz-pub when the location is DAN1:  
-	try going northwest instead.
-
-Section 7 - Jail
-
-The lautz-jail is in DAN1.  The lautz-jail is scenery.  Printed name of the lautz-jail is "Backwater jail".   Understand "jail", "backwater jail", "prison" as lautz-jail when location is DAN1.  The description of lautz-jail is "The [lautz-jail] sits conveniently close to the pub, awaiting any patron who may get a bit too rowdy.  The building is fairly non-descript and the dark entrance sits to the north of where you are standing now."
-
-Before entering lautz-jail when the location is DAN1:
 	try going north instead.
 
 Section 8 - Pub Sign
@@ -277,8 +266,17 @@ Section 16 - Other Stuff
 Instead of going east when location is DAN1:  say "You shouldn't wander off in that direction."
 Instead of going southwest when location is DAN1:  say "There is no room between the buildings in that direction."
 Instead of going southeast when location is DAN1:  say "There is no room between the buildings in that direction."
+
+Instead of going northwest when location is DAN1:  say "There is no room between the buildings in that direction."
+Instead of going northeast when location is DAN1:  say "There is no room between the buildings in that direction."
+
+Instead of going south when location is DAN1:  say "There is no room between the buildings in that direction."
+
 Instead of going up when location is DAN1: say "Climbing the buildings is not the best thing to do right now."
-Instead of going down when location is DAN1: say "There is no where to go down from here."
+
+Instead of going down when location is DAN1: 
+	say "You make your way down the steps and enter the pub.";
+	try going north instead.
 
 Instead of jumping when the location is DAN1: say "You jump perilously close to the steps to the pub."
 Instead of eating when the location is DAN1: say "There is nothing to eat here and really you're not that hungry."
